@@ -35,3 +35,4 @@ C:\Users\gabriel.paoli\source\repos\ORTflix\ORTflix\obj\Debug\netcoreapp3.1\ORTf
 C:\Users\gabriel.paoli\source\repos\ORTflix\ORTflix\obj\Debug\netcoreapp3.1\ORTflix.pdb
 C:\Users\gabriel.paoli\source\repos\ORTflix\ORTflix\obj\Debug\netcoreapp3.1\ORTflix.genruntimeconfig.cache
 C:\Users\gabriel.paoli\source\repos\ORTflix\ORTflix\obj\Debug\netcoreapp3.1\ORTflix.csproj.CopyComplete
+C:\Users\gabriel.paoli\source\repos\ORTflix\ORTflix\obj\Debug\netcoreapp3.1\Razor\Views\Home\Peliculas.cshtml.g.cs
