@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gabriel.paoli\\source\\repos\\ORTflix\\ORTflix\\ORTflix.csproj": {}
+    "C:\\Users\\gabriel.paoli\\source\\repos\\ORTFlix\\ORTflix\\ORTflix.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gabriel.paoli\\source\\repos\\ORTflix\\ORTflix\\ORTflix.csproj": {
+    "C:\\Users\\gabriel.paoli\\source\\repos\\ORTFlix\\ORTflix\\ORTflix.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabriel.paoli\\source\\repos\\ORTflix\\ORTflix\\ORTflix.csproj",
+        "projectUniqueName": "C:\\Users\\gabriel.paoli\\source\\repos\\ORTFlix\\ORTflix\\ORTflix.csproj",
         "projectName": "ORTflix",
-        "projectPath": "C:\\Users\\gabriel.paoli\\source\\repos\\ORTflix\\ORTflix\\ORTflix.csproj",
+        "projectPath": "C:\\Users\\gabriel.paoli\\source\\repos\\ORTFlix\\ORTflix\\ORTflix.csproj",
         "packagesPath": "C:\\Users\\gabriel.paoli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabriel.paoli\\source\\repos\\ORTflix\\ORTflix\\obj\\",
+        "outputPath": "C:\\Users\\gabriel.paoli\\source\\repos\\ORTFlix\\ORTflix\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabriel.paoli\\AppData\\Roaming\\NuGet\\NuGet.Config",
