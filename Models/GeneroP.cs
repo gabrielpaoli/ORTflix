@@ -10,6 +10,11 @@ namespace ORTflix.Models
         Terror,
         Comedia,
         Drama,
-        CienciaFiccion
+        CienciaFiccion,
+        Animacion,
+        Documental,
+        Accion,
+        Thriller,
+        Policial
     }
 }

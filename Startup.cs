@@ -33,7 +33,10 @@ namespace ORTflix
             options.UseSqlServer(Configuration["ConnectionString:ORTflixDBConnection"
            ]));
 
-           
+            services.AddHttpContextAccessor();
+            services.AddSession();
+
+            //services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +58,7 @@ namespace ORTflix
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PeliculasDelUsuario>
+
+@{
+    ViewData["Title"] = "Mis peliculas";
+}
+
+
+<div class="gridPeliculas">
+    @foreach (var item in Model)
+    {
+        <div data-userid="1" data-peliculaid="@item.Pelicula.Id" class="itemPelicula itemPelicula-@item.Pelicula.Id">
+
+            <div class="poster"><img src="@Url.Content("/img/" + item.Pelicula.Imagen +"")" /></div>
+
+            <div class="datosPelicula">
+                <p class="titulo">@Html.DisplayFor(modelItem => item.Pelicula.Titulo)<span style="float: right;">@Html.DisplayFor(modelItem => item.Pelicula.ano)</span></p>
+                <p>@Html.DisplayFor(modelItem => item.Pelicula.GeneroPelicula) <span class="detalleLink"><a href="/Peliculas/DetallePelicula/@item.Pelicula.Id">Ver detalle</a></span></p>
+            </div>
+
+            <div class="gridIcons">
+                <div data-userid="1" data-peliculaid="@item.Pelicula.Id" class="VotUp">
+                    <i class="fas fa-thumbs-up"></i>
+                </div>
+                <div data-userid="1" data-peliculaid="@item.Pelicula.Id" class="VotDown">
+                    <i class="fas fa-thumbs-down"></i>
+                </div>
+                <div data-userid="1" data-peliculaid="@item.Pelicula.Id" class="addFavorites">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_CatalogoScripts");}
+}

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gabriel.paoli\\source\\repos\\ORTflix\\ORTflix\\ORTflix.csproj": {}
+    "C:\\Users\\gabriel.paoli\\source\\repos\\ORTFlix\\ORTflix\\ORTflix.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gabriel.paoli\\source\\repos\\ORTflix\\ORTflix\\ORTflix.csproj": {
+    "C:\\Users\\gabriel.paoli\\source\\repos\\ORTFlix\\ORTflix\\ORTflix.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabriel.paoli\\source\\repos\\ORTflix\\ORTflix\\ORTflix.csproj",
+        "projectUniqueName": "C:\\Users\\gabriel.paoli\\source\\repos\\ORTFlix\\ORTflix\\ORTflix.csproj",
         "projectName": "ORTflix",
-        "projectPath": "C:\\Users\\gabriel.paoli\\source\\repos\\ORTflix\\ORTflix\\ORTflix.csproj",
+        "projectPath": "C:\\Users\\gabriel.paoli\\source\\repos\\ORTFlix\\ORTflix\\ORTflix.csproj",
         "packagesPath": "C:\\Users\\gabriel.paoli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabriel.paoli\\source\\repos\\ORTflix\\ORTflix\\obj\\",
+        "outputPath": "C:\\Users\\gabriel.paoli\\source\\repos\\ORTFlix\\ORTflix\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabriel.paoli\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,15 +40,27 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Core": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[3.1.15, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[3.1.15, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
             }
           },
           "imports": [

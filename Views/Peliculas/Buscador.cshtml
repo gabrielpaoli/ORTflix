@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Pelicula>
+
+@{
+    ViewData["Title"] = "Buscador";
+}
+
+<form id="buscador" class="form-inline buscadorEnBusqueda" action="/Peliculas/Buscador" method="get">
+    <div class="form-group mb-2">
+        <input class="form-control" type="text" id="titulo" name="titulo" placeholder="Titulo">
+    </div>
+    <div class="form-group mb-2">
+        <input class="form-control" type="text" id="director" name="director" placeholder="Director">
+    </div>
+    <div class="form-group mb-2">
+        <input class="form-control" type="number" id="ano" name="ano" placeholder="Anterior al año">
+    </div>
+
+    <div class="form-group mb-2">
+        <select class="custom-select mr-sm-2" name="genero" id="genero">
+            <option disable selected>Genero</option>
+            <option value="1">Ciencia ficcion</option>
+            <option value="2">Comedia</option>
+            <option value="3">Drama</option>
+            <option value="4">Terror</option>
+            <option value="5">Accion</option>
+            <option value="6">Animacion</option>
+            <option value="7">Policial</option>
+            <option value="8">Thriller</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-2">
+        <select class="custom-select mr-sm-2" name="order" id="order">
+            <option selected>Ordenar por</option>
+            <option value="votoPositivo">Voto positivo</option>
+            <option value="votoNegativo">Voto Negativo</option>
+            <option value="titulo">Titulo</option>
+            <option value="ano">Año</option>
+        </select>
+    </div>
+
+    <a class="reload_icon" href="/Peliculas/Buscador">
+        <i class="fas fa-sync-alt"></i>
+    </a>
+    <button type="submit" class="form-group btn btn-primary mb-2">Buscar</button>
+</form>
+
+<div class="gridPeliculas">
+    @foreach (var item in Model)
+    {
+        <div data-userid="1" data-peliculaid="@item.Id" class="itemPelicula itemPelicula-@item.Id">
+
+            <div class="poster"><img src="@Url.Content("/img/" + item.Imagen +"")" /></div>
+
+            <div class="datosPelicula">
+                <p class="titulo">@Html.DisplayFor(modelItem => item.Titulo)<span style="float: right;">@Html.DisplayFor(modelItem => item.ano)</span></p>
+                <p>@Html.DisplayFor(modelItem => item.GeneroPelicula) <span class="detalleLink"><a href="/Peliculas/DetallePelicula/@item.Id">Ver detalle</a></span></p>
+            </div>
+
+            <div class="gridIcons">
+                <div data-userid="1" data-peliculaid="@item.Id" class="VotUp">
+                    <i class="fas fa-thumbs-up"></i>
+                </div>
+                <div data-userid="1" data-peliculaid="@item.Id" class="VotDown">
+                    <i class="fas fa-thumbs-down"></i>
+                </div>
+                <div data-userid="1" data-peliculaid="@item.Id" class="addFavorites">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_CatalogoScripts");}
+    @{await Html.RenderPartialAsync("_BuscadorScripts");}
+}
