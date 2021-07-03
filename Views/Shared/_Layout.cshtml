@@ -1,4 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{ var _session = HttpContextAccessor.HttpContext.Session;}
+
+@{ String userName = _session.GetString("userName"); }
+
+@{int userRole = 0;}
+
+@if (_session.GetInt32("userRole") != null)
+{
+    userRole = (int)_session.GetInt32("userRole");
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,32 +20,66 @@
     <title>@ViewData["Title"] - ORTflix</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ORTflix</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color: red;">ORTflix</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div class="collapse navbar-collapse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" style="color: white;">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy" style="color: white;">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Peliculas">Peliculas</a>
+                            <a class="nav-link" asp-area="" asp-controller="Peliculas" asp-action="Catalogo" style="color: white;">Catalogo</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Peliculas" asp-action="MisPeliculas" style="color: white;">Mis Peliculas</a>
+                        </li>
+                        @if (userRole == 1)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Peliculas" asp-action="Index" style="color: white;">Admin Peliculas</a>
+                            </li>
+                        }
                     </ul>
+                    <form id="buscadorNav" class="form-inline buscadorEnNav my-2 my-lg-0" action="/Peliculas/Buscador" method="get">
+                        <div class="form-group has-search">
+                            <span class="fa fa-search form-control-feedback"></span>
+                            <input class="form-control" type="text" id="tituloHomepage" name="titulo" placeholder="buscar pelicula">
+                        </div>
+                    </form>
+
+
+
+                    @if (userName != null)
+                    {
+                        @userName
+                        <span class="salirButton"><a href="/Usuario/Logout">Salir</a></span>
+                    }
+                    else
+                    {
+                        <div class="ingresarButton"><a href="/Usuario/Login">Ingresar</a></div>
+                    }
+
+
+
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

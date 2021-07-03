@@ -1,0 +1,36 @@
+﻿@model ORTflix.Models.Pelicula
+
+@{ ViewData["Title"] = "Details"; }
+
+<div class="container">
+    <div class="box">
+
+
+        <div class="imagen">
+            <img width="100%" src="@Url.Content("~/img/")@Model.Imagen" />
+        </div>
+
+        <div class="info">
+            <h3>@Html.DisplayFor(model => model.Titulo)</h3>
+
+            <div>
+                <p>@Html.DisplayFor(model => model.ano)</p>
+                <p> | </p>
+                <p>@Html.DisplayFor(model => model.GeneroPelicula)</p>
+            </div>
+
+            <div class="votes">
+                <p style="color: green">Likes: @Html.DisplayFor(model => model.VotoPositivo)</p>
+                <p style="color: orangered;">Dislikes: @Html.DisplayFor(model => model.VotoNegativo)</p>
+            </div>
+
+            <div class="descripction">
+                <p>
+                    @Html.DisplayFor(model => model.Description)
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>

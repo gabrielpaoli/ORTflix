@@ -1,8 +1,123 @@
-﻿@{
-    ViewData["Title"] = "Home Page22";
-}
+﻿@{ ViewData["Title"] = "Home Page"; }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+
+    <div class="banner">
+        <div class="slider">
+            <div><img src="~/img/banner1.jpg" /></div>
+            <div><img src="~/img/banner2.jpg" /></div>
+        </div>
+    </div>
+
+    <div class="categorias">
+        <h2>Categorias</h2>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum has been the industry's
+            standard dummy text ever since the 1500s, when an unknown
+            printer took a galley of type and scrambled it to make a
+            type specimen book
+        </p>
+
+        <div class="cardsCategorias">
+            <div class="card">
+                <a href="/Peliculas/Buscador?titulo=&director=&ano=&genero=4&order=Ordenar+por">
+                    <img src="/icons/terror.jpg" />
+                    <div class="textoImagen">Terror</div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/Peliculas/Buscador?titulo=&director=&ano=&genero=6&order=Ordenar+por">
+                    <img src="/icons/animacion.jpg" />
+                    <div class="textoImagen">Animacion</div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/Peliculas/Buscador?titulo=&director=&ano=&genero=1&order=Ordenar+por">
+                    <img src="/icons/sci-fi.jpg" />
+                    <div class="textoImagen">Ciencia Ficcion</div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/Peliculas/Buscador?titulo=&director=&ano=&genero=5&order=Ordenar+por">
+                    <img src="/icons/accion.jpg" />
+                    <div class="textoImagen">Accion</div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/Peliculas/Buscador?titulo=&director=&ano=&genero=7&order=Ordenar+por">
+                    <img src="/icons/policial.jpg" />
+                    <div class="textoImagen">Policial</div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/Peliculas/Buscador?titulo=&director=&ano=&genero=3&order=Ordenar+por">
+                    <img src="/icons/drama.jpg" />
+                    <div class="textoImagen">Drama</div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/Peliculas/Buscador?titulo=&director=&ano=&genero=2&order=Ordenar+por">
+                    <img src="/icons/comedy.jpg" />
+                    <div class="textoImagen">Comedia</div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/Peliculas/Buscador?titulo=&director=&ano=&genero=8&order=Ordenar+por">
+                    <img src="/icons/thriller.jpg" />
+                    <div class="textoImagen">Thriller</div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="masVotadas">
+        <h2>Peliculas mas votadas</h2>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum has been the industry's
+            standard dummy text ever since the 1500s, when an unknown
+            printer took a galley of type and scrambled it to make a
+            type specimen book
+        </p>
+
+        <div>
+            <a class="botonVer" href="/Peliculas/Buscador?titulo=&director=&ano=&genero=Genero&order=votoPositivo">ver todas</a>
+
+            <div class="cardsMasVotadas">
+                @foreach (Pelicula item in ViewBag.peliculasPorCategoria)
+                {
+                    <div class="card">
+                        <a href="/Peliculas/DetallePelicula/@item.Id">
+                            <img class="imagen" src="@Url.Content("/img/" + item.Imagen +"")" />
+                            <div class="texto_card_categorias"> @Html.DisplayFor(modelItem => item.Titulo)</div>
+                        </a>
+                    </div>
+                 }
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bottom">
+        <div class="social">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ORTflix</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_HomeScripts");}
+}
