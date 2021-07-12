@@ -92,7 +92,7 @@
             <a class="botonVer" href="/Peliculas/Buscador?titulo=&director=&ano=&genero=Genero&order=votoPositivo">ver todas</a>
 
             <div class="cardsMasVotadas">
-                @foreach (Pelicula item in ViewBag.peliculasPorCategoria)
+                @foreach (Pelicula item in ViewBag.peliculasConMasVotos)
                 {
                     <div class="card">
                         <a href="/Peliculas/DetallePelicula/@item.Id">
